@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <title>Assigment 2</title>
+    <script src="./service.js" defer></script>
+    <script src="./script.js" defer></script>
+    <style>
+        .avatar{
+            position: fixed;
+            float: left;
+            width: 50%;
+            left: 10%;
+        }
+        .weather{
+            float: right;
+            width: 50%;
+        }
+        .img-circle{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        .detail{
+            position: absolute;
+        }
+        .day{
+            top: 40%;
+            left: 55%;
+            position: fixed;
+            float: left;
+            margin: 1px;
+        }
+        .night{
+            left: 70%;
+            top: 40%;
+            float: left;
+            position: fixed;
+        }
+        body {
+        font-family: 'Dekko';font-size: 22px;
+        }
+        
+    </style>
+</head>
+<body style="background-color:#F5E3E3;">>
+    <div id="app">
+        <div class="avatar">
+            <div>
+                <img class='img-circle' src="https://i.pinimg.com/736x/4f/c4/92/4fc49228a940e41435b3796c18fc2346.jpg" alt="">
+            </div>
+            <h2>Do Ha Trang</h2>
+            <div>Faculty Information Technologies of Hanoi University</div>
+        </div>
+        <div class='weather'>
+            <div class='header'>
+                <h2>Your location: {{ location }}</h2>
+                <div>{{ date }}</div>
+                <div>{{ text }}</div>
+            </div>
+            <div class="detail">
+                <div class="day" >
+                <h2>Day</h2>
+                    <div class="img-day">
+                        <img v-bind:src="day_icon" width=120 height=80 alt="">
+                    </div>
+                    <div>{{ day_iconPhrase }}</div>
+                    <h1>{{ Math.floor((maxTemp - 32) / 1.8) }}°C</h1>
+                </div>
+                <div class="night" >
+                <h2>Night</h2>
+                    <div class="img-night">
+                        <img v-bind:src="night_icon" width=120 height=80 alt="">
+                    </div>
+                    <div>{{ night_iconPhrase }}</div>
+                    <h1>{{ Math.floor((minTemp -32) / 1.8) }}°C</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
